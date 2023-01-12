@@ -34,6 +34,10 @@ const Home: NextPage<HomeProps> = ({ exploreData }) => {
             ))}
           </div>
         </section>
+
+        <section>
+          <h2 className="text-3xl font-semibold py-8">Live Anywhere</h2>
+        </section>
       </main>
     </div>
   );
