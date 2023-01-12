@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { City } from "../typescript/interfaces";
+import { City, Place } from "../typescript/interfaces";
 import Head from "next/head";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
@@ -7,7 +7,7 @@ import SmallCard from "../components/SmallCard";
 
 type HomeProps = {
   primaryData: City[];
-  secondaryData: City[];
+  secondaryData: Place[];
 };
 
 const Home: NextPage<HomeProps> = ({ primaryData, secondaryData }) => {
@@ -48,11 +48,14 @@ export async function getStaticProps() {
   const primaryData = await fetch("https://www.jsonkeeper.com/b/4G1G").then(
     (res) => res.json()
   );
-
+  const secondaryData = await fetch("https://www.jsonkeeper.com/b/VHHT").then(
+    (res) => res.json()
+  );
 
   return {
     props: {
       primaryData,
+      secondaryData,
     },
   };
 }
