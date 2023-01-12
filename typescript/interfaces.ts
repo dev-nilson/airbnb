@@ -1,4 +1,4 @@
-export interface Place {
+export interface City {
   img: string;
   location: string;
   distance: string;
