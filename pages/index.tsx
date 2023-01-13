@@ -6,6 +6,7 @@ import Banner from "../components/Banner";
 import SmallCard from "../components/SmallCard";
 import MediumCard from "../components/MediumCard";
 import LargeCard from "../components/LargeCard";
+import Footer from "../components/Footer";
 
 type HomeProps = {
   primaryData: City[];
@@ -54,6 +55,8 @@ const Home: NextPage<HomeProps> = ({ primaryData, secondaryData }) => {
           buttonText="Get Inspired"
         />
       </main>
+
+      <Footer />
     </div>
   );
 };
