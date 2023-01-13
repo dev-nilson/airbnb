@@ -5,6 +5,7 @@ import {
   MenuIcon,
   SearchIcon,
   UserCircleIcon,
+  UsersIcon,
 } from "@heroicons/react/solid";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css";
@@ -14,6 +15,7 @@ function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [numberOfGuests, setNumberOfGuests] = useState(1);
 
   const selectionRange = {
     startDate,
@@ -62,6 +64,19 @@ function Header() {
             rangeColors={["#FD5B61"]}
             onChange={handleChange}
           />
+          <div className="flex items-center border-b mb-4">
+            <h2 className="text-2xl pl-2 flex-grow font-semibold">
+              Number of Guests
+            </h2>
+            <UsersIcon className="h-5" />
+            <input
+              className="w-12 pl-2 text-lg outline-none text-red-400"
+              type="number"
+              min={1}
+              value={numberOfGuests}
+              onChange={(e) => setNumberOfGuests(parseInt(e.target.value))}
+            />
+          </div>
         </div>
       )}
     </header>
