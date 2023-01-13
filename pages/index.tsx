@@ -4,6 +4,7 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
 import SmallCard from "../components/SmallCard";
+import MediumCard from "../components/MediumCard";
 
 type HomeProps = {
   primaryData: City[];
@@ -38,6 +39,11 @@ const Home: NextPage<HomeProps> = ({ primaryData, secondaryData }) => {
 
         <section>
           <h2 className="text-3xl font-semibold py-8">Live Anywhere</h2>
+          <div className="flex space-x-3 overflow-x-scroll overflow-y-hidden scrollbar-hide p-3 -ml-3">
+            {secondaryData.map((item) => (
+              <MediumCard key={item.img} image={item.img} title={item.title} />
+            ))}
+          </div>
         </section>
       </main>
     </div>
