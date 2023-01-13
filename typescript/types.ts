@@ -3,3 +3,8 @@ export type SmallCardProps = {
   location: string;
   distance: string;
 };
+
+export type MediumCardProps = {
+  image: string;
+  title: string;
+};
