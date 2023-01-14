@@ -3,9 +3,10 @@ import { format } from "date-fns";
 import { Result } from "../typescript/interfaces";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import InfoCard from "../components/InfoCard";
 
 type SearchProps = {
-  searchResults: Result;
+  searchResults: Result[];
 };
 
 function Search({ searchResults }: SearchProps) {
@@ -33,6 +34,21 @@ function Search({ searchResults }: SearchProps) {
             <p className="chip">Price</p>
             <p className="chip">Rooms and Beds</p>
             <p className="chip">More Filters</p>
+          </div>
+
+          <div className="flex flex-col">
+            {searchResults.map((item: Result) => (
+              <InfoCard
+                key={item.img}
+                img={item.img}
+                location={item.location}
+                title={item.title}
+                description={item.description}
+                star={item.star}
+                price={item.price}
+                total={item.total}
+             />
+            ))}
           </div>
         </section>
       </main>
