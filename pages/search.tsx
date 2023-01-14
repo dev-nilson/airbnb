@@ -1,9 +1,14 @@
 import { useRouter } from "next/router";
 import { format } from "date-fns";
+import { Result } from "../typescript/interfaces";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-function Search() {
+type SearchProps = {
+  searchResults: Result;
+};
+
+function Search({ searchResults }: SearchProps) {
   const router = useRouter();
   const { location, startDate, endDate, guests } = router.query;
   const formattedStartDate = format(new Date(startDate), "dd MMMM yyyy");
@@ -37,3 +42,15 @@ function Search() {
 }
 
 export default Search;
+
+export async function getServerSideProps() {
+  const searchResults = await fetch("https://www.jsonkeeper.com/b/5NPS").then(
+    (res) => res.json()
+  );
+
+  return {
+    props: {
+      searchResults,
+    },
+  };
+}
