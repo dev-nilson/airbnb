@@ -12,7 +12,7 @@ function Search() {
 
   return (
     <div className="h-screen">
-      <Header />
+      <Header placeholder={`${location}`} />
       <main>
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs">
