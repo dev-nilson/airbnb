@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
+import { DateRangePicker } from "react-date-range";
 import Image from "next/image";
 import {
   GlobeAltIcon,
@@ -7,7 +9,6 @@ import {
   UserCircleIcon,
   UsersIcon,
 } from "@heroicons/react/solid";
-import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
@@ -16,6 +17,7 @@ function Header() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [numberOfGuests, setNumberOfGuests] = useState(1);
+  const router = useRouter();
 
   const selectionRange = {
     startDate,
@@ -36,10 +38,12 @@ function Header() {
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
       <div className="relative flex items-center">
         <Image
+          className="cursor-pointer"
           src="https://links.papareact.com/qd3"
           width={125}
           height={50}
           alt="logo"
+          onClick={() => router.push("/")}
         />
       </div>
       <div className="flex items-center md:border-2 rounded-full py-2">
