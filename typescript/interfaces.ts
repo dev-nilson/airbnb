@@ -20,3 +20,21 @@ export interface Result {
   long: number;
   lat: number;
 }
+
+export interface Dimension {
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+}
+
+export interface View {
+  width?: string;
+  height?: string;
+  bearing?: number;
+  latitude: number;
+  longitude: number;
+  padding?: Dimension;
+  pitch?: number;
+  zoom: number;
+}
