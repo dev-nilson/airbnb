@@ -4,6 +4,7 @@ import { Result } from "../typescript/interfaces";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
 
 type SearchProps = {
   searchResults: Result[];
@@ -19,7 +20,7 @@ function Search({ searchResults }: SearchProps) {
   return (
     <div className="h-screen">
       <Header placeholder={`${location}`} />
-      <main>
+      <main className="flex">
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs">
             {range} for {guests} guests
@@ -47,9 +48,12 @@ function Search({ searchResults }: SearchProps) {
                 star={item.star}
                 price={item.price}
                 total={item.total}
-             />
+              />
             ))}
           </div>
+        </section>
+        <section className="hidden xl:inline-flex xl:min-w-[600px]}">
+          <Map />
         </section>
       </main>
       <Footer />
