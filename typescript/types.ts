@@ -15,3 +15,19 @@ export type LargeCardProps = {
   description: string;
   buttonText: string;
 };
+
+export type Result = {
+  img: string;
+  location: string;
+  title: string;
+  description: string;
+  star: number;
+  price: string;
+  total: string;
+  long: number;
+  lat: number;
+};
+
+export type MapProps = {
+  searchResults: Result[];
+};
