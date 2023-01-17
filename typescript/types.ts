@@ -31,3 +31,8 @@ export type Result = {
 export type MapProps = {
   searchResults: Result[];
 };
+
+export type Location = {
+  longitude: number;
+  latitude: number;
+};
